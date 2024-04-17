@@ -1,1 +1,1 @@
-# TakeHomeAssignment
+To run - npm run start

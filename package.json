@@ -1,0 +1,21 @@
+{
+  "name": "takehomeassignment",
+  "version": "1.0.0",
+  "description": "Assignment To Return Partient HeartBeat Data per Day",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/heartRateAnalyzer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "takeHomeAssignment_HeartBeatData"
+  },
+  "keywords": [
+    "CloudRay"
+  ],
+  "author": "SasikanthManavarthi",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
