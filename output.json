@@ -3,28 +3,28 @@
     "date": "2023-04-28",
     "min": 60,
     "max": 119,
-    "median": 81.40307145981485,
+    "median": 81.405,
     "latestDataTimestamp": "2023-04-28T21:54:00"
   },
   {
     "date": "2023-04-29",
     "min": 61,
     "max": 120,
-    "median": 72.79237087919306,
+    "median": 72.79,
     "latestDataTimestamp": "2023-04-29T21:54:00"
   },
   {
     "date": "2023-04-30",
     "min": 62,
     "max": 120,
-    "median": 86.88341402733516,
+    "median": 86.88,
     "latestDataTimestamp": "2023-04-30T21:53:00"
   },
   {
     "date": "2023-05-01",
     "min": 60,
     "max": 117,
-    "median": 77.2377043706035,
+    "median": 77.235,
     "latestDataTimestamp": "2023-05-01T21:56:00"
   }
 ]

@@ -17,7 +17,7 @@ function CalculateStats() {
             } else {
                 const min = Math.min(dailyStats[date].min, data?.beatsPerMinute)
                 const max = Math.max(dailyStats[date].max, data?.beatsPerMinute)
-                const median =  ((data?.beatsPerMinute+dailyStats[date]?.median)/2)
+                const median =  (data?.beatsPerMinute+dailyStats[date]?.median).toFixed(2)/2
                 dailyStats[date] = {...dailyStats[date], min,max, median,  latestDataTimestamp: data?.timestamps?.startTime}
             }
         })
