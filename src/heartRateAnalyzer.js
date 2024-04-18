@@ -10,17 +10,31 @@ function CalculateStats() {
                     date,
                     min: data?.beatsPerMinute,
                     max: data?.beatsPerMinute,
-                    median: data?.beatsPerMinute,
+                    beatsPerMinute: [],
                     latestDataTimestamp: data?.timestamps?.startTime
                 }
                 dailyStats[date] = stats
             } else {
-                const min = Math.min(dailyStats[date].min, data?.beatsPerMinute)
-                const max = Math.max(dailyStats[date].max, data?.beatsPerMinute)
-                const median =  (data?.beatsPerMinute+dailyStats[date]?.median).toFixed(2)/2
-                dailyStats[date] = {...dailyStats[date], min,max, median,  latestDataTimestamp: data?.timestamps?.startTime}
+                dailyStats[date].beatsPerMinute.push(data?.beatsPerMinute); // Push beats per minute value
+                dailyStats[date].min = Math.min(dailyStats[date].min, data?.beatsPerMinute);
+                dailyStats[date].max = Math.max(dailyStats[date].max, data?.beatsPerMinute);
+                dailyStats[date].latestDataTimestamp = data?.timestamps?.startTime;
             }
         })
+        // Updated Logic for Calculating Median
+        Object.values(dailyStats).forEach(stats => {
+            const beatsPerMinute = stats.beatsPerMinute;
+            beatsPerMinute.sort((a, b) => a - b);
+            const length = beatsPerMinute.length;
+            const mid = Math.floor(length / 2);
+            if (length % 2 === 0) {
+                stats.median = (beatsPerMinute[mid - 1] + beatsPerMinute[mid]) / 2;
+            } else {
+                stats.median = beatsPerMinute[mid];
+            }
+            delete stats.beatsPerMinute;
+        });
+
         fs.writeFileSync('output.json', JSON.stringify(Object.values(dailyStats), null, 2));
     }
     catch (error) {
